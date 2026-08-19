@@ -1,2 +1,3 @@
-# Projeto-in-home-tutoring-agency
+# In-Home Tutoring Agency
 
+O In-Home Tutoring Agency é um projeto de banco de dados desenvolvido para o gerenciamento de uma agência de aulas particulares domiciliares, utilizando MySQL e MySQL Workbench. O projeto tem como objetivo aplicar conceitos de modelagem de banco de dados, relacionamentos entre tabelas, chaves e consultas SQL, contemplando informações relacionadas a professores, alunos, responsáveis, disciplinas e aulas. O projeto encontra-se em desenvolvimento e será aprimorado com a criação das tabelas, inserção de dados fictícios e desenvolvimento de consultas para análise das informações armazenadas.
