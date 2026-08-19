@@ -23,8 +23,12 @@ create table guardians(
     constraint fk_guardians_student foreign key (idStudent) references students(idStudent)
 );
 
+create table subjects(
+	idSubject int auto_increment primary key,
+    Dname varchar(20)
+);
 
-    
+
 
 
     
