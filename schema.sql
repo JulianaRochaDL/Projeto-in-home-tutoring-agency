@@ -38,6 +38,21 @@ create table teachers(
     neighborhoodCityState varchar(20),
     contact char(11)
 );
+
+create table teacherSubject(
+	idTeacher int,
+    idSubject int,
+    gradeLevel enum('4° ano EF', '5° ano EF', '6° ano EF', '7° ano EF', '8° ano EF', '9° ano EF', '1° ano EM', '2° ano EM', '3° ano EM'),
+    primary key (idTeacher, idSubject),
+    constraint fk_TS_teacher foreign key (idTeacher) references teachers(idTeacher),
+    constraint fk_TS_subject foreign key (idSubject) references subjects(idSubject)
+);
+
+
+    
+	
+	
+
     
 	
 
