@@ -28,6 +28,19 @@ create table subjects(
     Dname varchar(20)
 );
 
+create table teachers(
+	idTeacher int auto_increment primary key,
+	Fname varchar(20),
+    Minit varchar(20),
+    Lname varchar(20),
+    CNPJ char(14),
+    streetNumber varchar(20),
+    neighborhoodCityState varchar(20),
+    contact char(11)
+);
+    
+	
+
 
 
 
