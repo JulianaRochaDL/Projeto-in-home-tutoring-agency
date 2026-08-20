@@ -1,7 +1,11 @@
+-- Criando tabelas do meu banco de dados
+
 create database tutoring_agency;
 
 use tutoring_agency;
 
+-- Criando a tabela de bairros 
+-- A tabela neighborhoods se torna necessária pois as aulas são domiciliares e existe uma necessidade de de aproximação geográfica de professores e alunos.
 create table neighborhoods(
 	idNeighborhood int auto_increment primary key,
     Bnome varchar(20) not null,
@@ -10,6 +14,7 @@ create table neighborhoods(
     cityZone enum('Norte', 'Sul', 'Leste', 'Oeste') not null
 );
 
+-- Criando a tabela dos responsáveis pelos alunos
 create table guardians(
 	idGuardian int auto_increment primary key,
 	Fname varchar(20) not null,
@@ -19,6 +24,7 @@ create table guardians(
     contact char(11) not null
 );
 
+-- Criando a tabela dos alunos
 create table students(
 	idStudent int auto_increment primary key,
     idGuardian int not null,
@@ -31,15 +37,19 @@ create table students(
     CPF char(11) not null unique,
     contact char(11),
     gradeLevel enum('4° ano EF', '5° ano EF', '6° ano EF', '7° ano EF', '8° ano EF', '9° ano EF', '1° ano EM', '2° ano EM', '3° ano EM') not null,
-    constraint fk_students_guardian foreign key (idGuardian) references guardians(idGuardian),
-    constraint fk_students_neighborhood foreign key (idNeighborhood) references neighborhoods(idNeighborhood)
+    constraint fk_students_guardian foreign key (idGuardian) 
+		references guardians(idGuardian),
+    constraint fk_students_neighborhood foreign key (idNeighborhood) 
+		references neighborhoods(idNeighborhood)
 );
 
+-- Criando a tabela das disciplinas
 create table subjects(
 	idSubject int auto_increment primary key,
     Dname varchar(20) not null
 );
 
+-- Criando a tabela dos professores
 create table teachers(
 	idTeacher int auto_increment primary key,
     idNeighborhood int not null,
@@ -51,18 +61,23 @@ create table teachers(
     CNPJ char(14) not null unique,
     CPF char(11) unique,
     contact char(11) not null,
-	constraint fk_teachers_neighborhood foreign key (idNeighborhood) references neighborhoods(idNeighborhood)
+	constraint fk_teachers_neighborhood foreign key (idNeighborhood) 
+		references neighborhoods(idNeighborhood)
 );
 
+-- Criando a tabela que relaciona professores, disciplinas e a série em que cada um leciona
 create table teacherSubject(
 	idTeacher int,
     idSubject int,
     gradeLevel enum('4° ano EF', '5° ano EF', '6° ano EF', '7° ano EF', '8° ano EF', '9° ano EF', '1° ano EM', '2° ano EM', '3° ano EM') not null,
-    primary key (idTeacher, idSubject),
-    constraint fk_TS_teacher foreign key (idTeacher) references teachers(idTeacher),
-    constraint fk_TS_subject foreign key (idSubject) references subjects(idSubject)
+    primary key (idTeacher, idSubject, gradeLevel),
+    constraint fk_TS_teacher foreign key (idTeacher) 
+		references teachers(idTeacher),
+    constraint fk_TS_subject foreign key (idSubject) 
+		references subjects(idSubject)
 );
 
+-- criando tabela de aulas fixas
 create table recurringClasses(
 	idRecurringClasse int auto_increment primary key,
     dayWeek enum('segunda-feira', 'terça-feira', 'quarta-feira', 'quinta-feira', 'sexta-feira', 'sábado', 'domingo') not null,
@@ -71,20 +86,24 @@ create table recurringClasses(
     endDate date
 );
 
+-- criando tabela de aulas 
 create table classes(
 	idClasse int auto_increment primary key,
     idTeacher int not null,
     idStudent int not null,
     idSubject int not null,
     idRecurringClasse int,
+	gradeLevel enum('4° ano EF', '5° ano EF', '6° ano EF', '7° ano EF', '8° ano EF', '9° ano EF', '1° ano EM', '2° ano EM', '3° ano EM') not null,
     classDate date not null,
     classTime time not null,
-    typeClasse enum('Fixa', 'Esporádica'),
-    classStatus enum('Agendada', 'Reagendada', 'Realizada', 'Cancelada'),
-    constraint fk_classes_teacher foreign key (idTeacher) references teachers(idTeacher),
-    constraint fk_classes_student foreign key (idStudent) references students(idStudent),
-	constraint fk_classes_subject foreign key (idSubject) references subjects(idSubject),
-    constraint fk_classes_recurringClasse foreign key (idRecurringClasse) references recurringClasses(idRecurringClasse)
+    typeClasse enum('Fixa', 'Esporádica') not null,
+    classStatus enum('Agendada', 'Reagendada', 'Realizada', 'Cancelada') not null,
+    constraint fk_classes_student foreign key (idStudent) 
+		references students(idStudent),
+    constraint fk_classes_recurringClasse foreign key (idRecurringClasse) 
+		references recurringClasses(idRecurringClasse),
+    constraint fk_classes_teachersubject foreign key (idTeacher, idSubject, gradeLevel) 
+		references teacherSubject (idTeacher, idSubject, gradeLevel)
 );
 
 
