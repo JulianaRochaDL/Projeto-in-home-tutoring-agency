@@ -2,6 +2,23 @@ create database tutoring_agency;
 
 use tutoring_agency;
 
+create table neighborhoods(
+	idNeighborhood int auto_increment primary key,
+    Bnome varchar(20) not null,
+    city varchar(20) not null,
+    state char(2) not null,
+    cityZone enum('Norte', 'Sul', 'Leste', 'Oeste') not null
+);
+
+create table guardians(
+	idGuardian int auto_increment primary key,
+	Fname varchar(20) not null,
+    Minit varchar(20),
+    Lname varchar(20) not null,
+    CPF char(11) not null unique,
+    contact char(11) not null
+);
+
 create table students(
 	idStudent int auto_increment primary key,
     idGuardian int not null,
@@ -16,15 +33,6 @@ create table students(
     gradeLevel enum('4° ano EF', '5° ano EF', '6° ano EF', '7° ano EF', '8° ano EF', '9° ano EF', '1° ano EM', '2° ano EM', '3° ano EM') not null,
     constraint fk_students_guardian foreign key (idGuardian) references guardians(idGuardian),
     constraint fk_students_neighborhood foreign key (idNeighborhood) references neighborhoods(idNeighborhood)
-);
-
-create table guardians(
-	idGuardian int auto_increment primary key,
-	Fname varchar(20) not null,
-    Minit varchar(20),
-    Lname varchar(20) not null,
-    CPF char(11) not null unique,
-    contact char(11) not null
 );
 
 create table subjects(
@@ -55,6 +63,14 @@ create table teacherSubject(
     constraint fk_TS_subject foreign key (idSubject) references subjects(idSubject)
 );
 
+create table recurringClasses(
+	idRecurringClasse int auto_increment primary key,
+    dayWeek enum('segunda-feira', 'terça-feira', 'quarta-feira', 'quinta-feira', 'sexta-feira', 'sábado', 'domingo') not null,
+    timeClasse time not null,
+    startDate date not null,
+    endDate date
+);
+
 create table classes(
 	idClasse int auto_increment primary key,
     idTeacher int not null,
@@ -71,21 +87,9 @@ create table classes(
     constraint fk_classes_recurringClasse foreign key (idRecurringClasse) references recurringClasses(idRecurringClasse)
 );
 
-create table recurringClasses(
-	idRecurringClasse int auto_increment primary key,
-    dayWeek enum('segunda-feira', 'terça-feira', 'quarta-feira', 'quinta-feira', 'sexta-feira', 'sábado', 'domingo') not null,
-    timeClasse time not null,
-    startDate date not null,
-    endDate date
-);
-    
-create table neighborhoods(
-	idNeighborhood int auto_increment primary key,
-    Bnome varchar(20) not null,
-    city varchar(20) not null,
-    state char(2) not null,
-    cityZone enum('Norte', 'Sul', 'Leste', 'Oeste') not null
-);
+
+
+
 
     
 
