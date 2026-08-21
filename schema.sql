@@ -43,6 +43,9 @@ create table students(
 		references neighborhoods(idNeighborhood)
 );
 
+ALTER TABLE students
+MODIFY COLUMN street VARCHAR(50) NOT NULL;
+
 -- Criando a tabela das disciplinas
 create table subjects(
 	idSubject int auto_increment primary key,
@@ -64,6 +67,9 @@ create table teachers(
 	constraint fk_teachers_neighborhood foreign key (idNeighborhood) 
 		references neighborhoods(idNeighborhood)
 );
+
+ALTER TABLE teachers
+MODIFY COLUMN street VARCHAR(50) NOT NULL;
 
 -- Criando a tabela que relaciona professores, disciplinas e a série em que cada um leciona
 create table teacherSubject(
