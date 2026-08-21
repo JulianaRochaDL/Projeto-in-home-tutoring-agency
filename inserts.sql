@@ -138,7 +138,23 @@ insert into subjects(Dname)
         ('Espanhol'),
         ('Redação');
 
-
+insert into teachers(idNeighborhood, street, num, Fname, Minit, Lname, CNPJ, CPF, contact)
+	values
+		(11, 'Rua da Aurora', '85', 'Renato', 'M', 'Barros', '11222333000181', '20000000001', '81988001122'),
+        (12, 'Rua Setúbal', '210', 'Cristina', NULL, 'Amaral', '11222333000182', '20000000002', '81977002233'),
+        (14, 'Rua Casa Forte', '44', 'Marcos', 'A', 'Vidal', '11222333000183', '20000000003', '81966003344'),
+        (16, 'Rua Madalena', '300', 'Tainá', 'B', 'Rocha', '11222333000184', '20000000004', '81955004455'),
+        (18, 'Rua Iputinga', '18', 'Diego', NULL, 'Nogueira', '11222333000185', '20000000005', '81944005566'),
+        (1, 'Rua do Comércio', '60', 'Rosana', 'C', 'Peixoto', '11222333000186', '20000000006', '87933006677'),
+        (3, 'Rua Nova', '25', 'Igor', 'D', 'Bastos', '11222333000187', '20000000007', '87922007788'),
+        (5, 'Rua Pernambuco', '99', 'Luciana', NULL, 'Andrade', '11222333000188', '20000000008', '87911008899'),
+        (7, 'Rua Progresso', '150', 'Vinícius', 'E', 'Marinho', '11222333000189', '20000000009', '87900009900'),
+        (9, 'Rua São José', '40', 'Adriana', 'F', 'Cunha', '11222333000190', '20000000010', '87899000011'),
+        (21, 'Rua Pituba', '77', 'Otávio', NULL, 'Leal', '11222333000191', '20000000011', '71988001133'),
+        (23, 'Rua Brotas', '132', 'Bianca', 'G', 'Moraes', '11222333000192', '20000000012', '71977002244'),
+        (25, 'Rua Federação', '58', 'Caio', 'H', 'Ribeiro', '11222333000193', '20000000013', '71966003355'),
+        (27, 'Rua Liberdade', '90', 'Denise', NULL, 'Fontes', '11222333000194', '20000000014', '71955004466'),
+        (29, 'Rua Pernambués', '15', 'Hugo', 'I', 'Assunção', '11222333000195', '20000000015', '71944005577');
         
         
         
