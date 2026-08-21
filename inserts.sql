@@ -68,6 +68,20 @@ insert into guardians (Fname, Minit, Lname, CPF, contact)
         ('Diego', 'S', 'Pinheiro', '11122255566', '71844443333'),
         ('Elaine', 'C', 'Sampaio', '22233366677', '71833332222');
         
+insert into subjects(Dname)
+	values
+		('Matemática'),
+        ('Português'),
+        ('História'),
+        ('Geografia'),
+        ('Ciências'),
+        ('Física'),
+        ('Química'),
+        ('Biologia'),
+        ('Inglês'),
+        ('Espanhol'),
+        ('Redação');
+        
 insert into students(idGuardian, idNeighborhood, street, num, Fname, Minit, Lname, CPF, contact, gradeLevel)
 	values
 		(1, 11, 'Rua da Aurora', '120', 'Larissa', 'A', 'Silva', '10000000001', '81988887700', '6° ano EF'),
@@ -123,20 +137,6 @@ insert into students(idGuardian, idNeighborhood, street, num, Fname, Minit, Lnam
         (30, 30, 'Rua Pernambués', '48', 'Ayla', 'C', 'Sampaio', '10000000051', '71833332200', '6° ano EF'),
         (30, 30, 'Rua Pernambués', '48', 'Erick', 'C', 'Sampaio', '10000000052', '71833332200', '2° ano EM'),
         (30, 30, 'Rua Pernambués', '48', 'Manuela', 'C', 'Sampaio', '10000000053', '71833332200', '4° ano EF');
-
-insert into subjects(Dname)
-	values
-		('Matemática'),
-        ('Português'),
-        ('História'),
-        ('Geografia'),
-        ('Ciências'),
-        ('Física'),
-        ('Química'),
-        ('Biologia'),
-        ('Inglês'),
-        ('Espanhol'),
-        ('Redação');
 
 insert into teachers(idNeighborhood, street, num, Fname, Minit, Lname, CNPJ, CPF, contact)
 	values
@@ -223,39 +223,7 @@ insert into teacherSubject(idTeacher,idSubject, gradeLevel)
         (9, 11, '9° ano EF'),
         (9, 11, '3° ano EM');
 
-insert into recurringClasses (dayWeek, timeClasse, startDate, endDate, durationMinutes, idPackage)
-	values
-		('terça-feira', '16:00:00', '2026-02-03', '2026-06-30', 60, 1),
-		('quinta-feira', '16:00:00', '2026-02-05', '2026-06-30', 60, 1),
-		('segunda-feira', '14:00:00', '2026-02-02', '2026-06-30', 60, 2),
-		('quarta-feira', '14:00:00', '2026-02-04', '2026-06-30', 60, 2),
-		('segunda-feira', '09:00:00', '2026-02-02', '2026-06-30', 90, 3),
-		('terça-feira', '10:00:00', '2026-02-03', '2026-06-30', 60, 4),
-		('quinta-feira', '10:00:00', '2026-02-05', '2026-06-30', 60, 4),
-		('sábado', '10:00:00', '2026-02-07', '2026-06-30', 60, 4),
-		('segunda-feira', '17:00:00', '2026-02-02', NULL, 60, 5),
-		('sexta-feira', '17:00:00', '2026-02-06', NULL, 60, 5),
-		('quarta-feira', '11:00:00', '2026-02-04', '2026-06-30', 90, 6),
-		('sábado', '11:00:00', '2026-02-07', '2026-06-30', 90, 6),
-		('quinta-feira', '19:00:00', '2026-02-05', '2026-07-31', 60, 7),
-		('terça-feira', '18:30:00', '2026-02-03', '2026-07-31', 60, 8),
-		('sexta-feira', '18:30:00', '2026-02-06', '2026-07-31', 60, 8),
-		('segunda-feira', '08:00:00', '2026-02-02', '2026-06-30', 60, 9),
-		('quarta-feira', '08:00:00', '2026-02-04', '2026-06-30', 60, 9),
-		('sexta-feira', '08:00:00', '2026-02-06', '2026-06-30', 60, 9),
-		('sábado', '09:30:00', '2026-02-07', '2026-06-30', 120, 10),
-		('terça-feira', '15:00:00', '2026-02-10', '2026-06-30', 60, 11),
-		('quinta-feira', '15:00:00', '2026-02-12', '2026-06-30', 60, 11),
-		('segunda-feira', '19:30:00', '2026-03-02', '2026-07-31', 90, 12),
-		('quarta-feira', '19:30:00', '2026-03-04', '2026-07-31', 90, 12),
-		('sexta-feira', '14:30:00', '2026-02-06', '2026-06-30', 60, 13),
-		('terça-feira', '13:00:00', '2026-02-03', NULL, 60, 14),
-		('sábado', '13:00:00', '2026-02-07', NULL, 60, 14),
-		('segunda-feira', '20:00:00', '2026-02-02', '2026-06-30', 60, 15),
-		('terça-feira', '20:00:00', '2026-02-03', '2026-06-30', 60, 15),
-		('quinta-feira', '20:00:00', '2026-02-05', '2026-06-30', 60, 15);
-		
-		
+
         
         
         
