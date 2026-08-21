@@ -123,6 +123,24 @@ insert into students(idGuardian, idNeighborhood, street, num, Fname, Minit, Lnam
         (30, 30, 'Rua Pernambués', '48', 'Ayla', 'C', 'Sampaio', '10000000051', '71833332200', '6° ano EF'),
         (30, 30, 'Rua Pernambués', '48', 'Erick', 'C', 'Sampaio', '10000000052', '71833332200', '2° ano EM'),
         (30, 30, 'Rua Pernambués', '48', 'Manuela', 'C', 'Sampaio', '10000000053', '71833332200', '4° ano EF');
+
+insert into subjects(Dname)
+	values
+		('Matemática'),
+        ('Português'),
+        ('História'),
+        ('Geografia'),
+        ('Ciências'),
+        ('Física'),
+        ('Química'),
+        ('Biologia'),
+        ('Inglês'),
+        ('Espanhol'),
+        ('Redação');
+
+
+        
+        
         
 
 		
