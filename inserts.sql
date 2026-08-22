@@ -2,6 +2,7 @@
 
 use tutoring_agency;
 
+-- insere os bairros onde residem alunos e professores
 insert into neighborhoods (Bnome, city, state, cityZone)
 	values 
 		('Centro', 'Caruaru', 'PE', 'Norte'),
@@ -35,6 +36,7 @@ insert into neighborhoods (Bnome, city, state, cityZone)
 		('Ondina', 'Salvador', 'BA', 'Sul'),
 		('Pernambués', 'Salvador', 'BA', 'Norte');
 
+-- insere os dados dos responsáveis
 insert into guardians (Fname, Minit, Lname, CPF, contact)
 	values
 		('Carlos', 'A', 'Silva', '11111111111', '81988887777'),
@@ -68,6 +70,7 @@ insert into guardians (Fname, Minit, Lname, CPF, contact)
         ('Diego', 'S', 'Pinheiro', '11122255566', '71844443333'),
         ('Elaine', 'C', 'Sampaio', '22233366677', '71833332222');
         
+-- insere as disciplinas
 insert into subjects(Dname)
 	values
 		('Matemática'),
@@ -81,7 +84,8 @@ insert into subjects(Dname)
         ('Inglês'),
         ('Espanhol'),
         ('Redação');
-        
+ 
+ -- insere os dados dos alunos
 insert into students(idGuardian, idNeighborhood, street, num, Fname, Minit, Lname, CPF, contact, gradeLevel)
 	values
 		(1, 11, 'Rua da Aurora', '120', 'Larissa', 'A', 'Silva', '10000000001', '81988887700', '6° ano EF'),
@@ -138,6 +142,7 @@ insert into students(idGuardian, idNeighborhood, street, num, Fname, Minit, Lnam
         (30, 30, 'Rua Pernambués', '48', 'Erick', 'C', 'Sampaio', '10000000052', '71833332200', '2° ano EM'),
         (30, 30, 'Rua Pernambués', '48', 'Manuela', 'C', 'Sampaio', '10000000053', '71833332200', '4° ano EF');
 
+-- insere os dados dos professores
 insert into teachers(idNeighborhood, street, num, Fname, Minit, Lname, CNPJ, CPF, contact)
 	values
 		(11, 'Rua da Aurora', '85', 'Renato', 'M', 'Barros', '11222333000181', '20000000001', '81988001122'),
@@ -156,6 +161,7 @@ insert into teachers(idNeighborhood, street, num, Fname, Minit, Lname, CNPJ, CPF
         (27, 'Rua Liberdade', '90', 'Denise', NULL, 'Fontes', '11222333000194', '20000000014', '71955004466'),
         (29, 'Rua Pernambués', '15', 'Hugo', 'I', 'Assunção', '11222333000195', '20000000015', '71944005577');
 
+-- insere a relação dos professores, disciplinas e séries
 insert into teacherSubject(idTeacher,idSubject, gradeLevel)
 	values
 		(3, 6, '1° ano EM'),
@@ -223,10 +229,181 @@ insert into teacherSubject(idTeacher,idSubject, gradeLevel)
         (9, 11, '9° ano EF'),
         (9, 11, '3° ano EM');
 
+-- insere as aulas fixas
+insert into recurringClasses (idPackage, idTeacher, idStudent, idSubject, gradeLevel, dayWeek, timeClasse, startDate, endDate, durationMinutes)
+	values (1, 1, 1, 1, '6° ano EF', 'terça-feira', '16:00:00', '2026-02-03', '2026-11-30', 60);
+set @idRecurring = last_insert_id();
+call gerar_aulas_fixas(@idRecurring);
 
+insert into recurringClasses (idPackage, idTeacher, idStudent, idSubject, gradeLevel, dayWeek, timeClasse, startDate, endDate, durationMinutes)
+	values (1, 1, 1, 1, '6° ano EF', 'quinta-feira', '16:00:00', '2026-02-05', '2026-11-30', 60);
+set @idRecurring = last_insert_id(); 
+call gerar_aulas_fixas(@idRecurring);
+
+insert into recurringClasses (idPackage, idTeacher, idStudent, idSubject, gradeLevel, dayWeek, timeClasse, startDate, endDate, durationMinutes)
+	values (2, 7, 6, 1, '4° ano EF', 'segunda-feira', '14:00:00', '2026-02-02', '2026-11-30', 60);
+set @idRecurring = last_insert_id(); 
+call gerar_aulas_fixas(@idRecurring);
+
+insert into recurringClasses (idPackage, idTeacher, idStudent, idSubject, gradeLevel, dayWeek, timeClasse, startDate, endDate, durationMinutes)
+	values (2, 7, 6, 1, '4° ano EF', 'quarta-feira', '14:00:00', '2026-02-04', '2026-11-30', 60);
+set @idRecurring = last_insert_id(); 
+call gerar_aulas_fixas(@idRecurring);
+
+insert into recurringClasses (idPackage, idTeacher, idStudent, idSubject, gradeLevel, dayWeek, timeClasse, startDate, endDate, durationMinutes)
+	values (3, 12, 7, 1, '1° ano EM', 'segunda-feira', '09:00:00', '2026-02-02', '2026-11-30', 90);
+set @idRecurring = last_insert_id(); 
+call gerar_aulas_fixas(@idRecurring);
+
+insert into recurringClasses (idPackage, idTeacher, idStudent, idSubject, gradeLevel, dayWeek, timeClasse, startDate, endDate, durationMinutes)
+	values (4, 11, 20, 6, '1° ano EM', 'terça-feira', '10:00:00', '2026-02-03', '2026-11-30', 60);
+set @idRecurring = last_insert_id(); 
+call gerar_aulas_fixas(@idRecurring);
+
+insert into recurringClasses (idPackage, idTeacher, idStudent, idSubject, gradeLevel, dayWeek, timeClasse, startDate, endDate, durationMinutes)
+	values (4, 11, 20, 6, '1° ano EM', 'quinta-feira', '10:00:00', '2026-02-05', '2026-11-30', 60);
+set @idRecurring = last_insert_id(); 
+call gerar_aulas_fixas(@idRecurring);
+
+insert into recurringClasses (idPackage, idTeacher, idStudent, idSubject, gradeLevel, dayWeek, timeClasse, startDate, endDate, durationMinutes)
+	values (4, 11, 20, 6, '1° ano EM', 'sábado', '10:00:00', '2026-02-07', '2026-11-30', 60);
+set @idRecurring = last_insert_id(); 
+call gerar_aulas_fixas(@idRecurring);
+
+insert into recurringClasses (idPackage, idTeacher, idStudent, idSubject, gradeLevel, dayWeek, timeClasse, startDate, endDate, durationMinutes)
+	values (5, 4, 22, 6, '2° ano EM', 'segunda-feira', '17:00:00', '2026-02-02', '2026-11-30', 60);
+set @idRecurring = last_insert_id(); 
+call gerar_aulas_fixas(@idRecurring);
+
+insert into recurringClasses (idPackage, idTeacher, idStudent, idSubject, gradeLevel, dayWeek, timeClasse, startDate, endDate, durationMinutes)
+	values (5, 4, 22, 6, '2° ano EM', 'sexta-feira', '17:00:00', '2026-02-06', '2026-11-30', 60);
+set @idRecurring = last_insert_id(); 
+call gerar_aulas_fixas(@idRecurring);
+
+insert into recurringClasses (idPackage, idTeacher, idStudent, idSubject, gradeLevel, dayWeek, timeClasse, startDate, endDate, durationMinutes)
+	values (6, 3, 43, 8, '3° ano EM', 'quarta-feira', '11:00:00', '2026-02-04', '2026-11-30', 90);
+set @idRecurring = last_insert_id(); 
+call gerar_aulas_fixas(@idRecurring);
+
+insert into recurringClasses (idPackage, idTeacher, idStudent, idSubject, gradeLevel, dayWeek, timeClasse, startDate, endDate, durationMinutes)
+	values (6, 3, 43, 8, '3° ano EM', 'sábado', '11:00:00', '2026-02-07', '2026-11-30', 90);
+set @idRecurring = last_insert_id(); 
+call gerar_aulas_fixas(@idRecurring);
+
+insert into recurringClasses (idPackage, idTeacher, idStudent, idSubject, gradeLevel, dayWeek, timeClasse, startDate, endDate, durationMinutes)
+	values (7, 9, 28, 11, '9° ano EF', 'quinta-feira', '19:00:00', '2026-02-05', '2026-11-30', 60);
+set @idRecurring = last_insert_id(); 
+call gerar_aulas_fixas(@idRecurring);
+
+insert into recurringClasses (idPackage, idTeacher, idStudent, idSubject, gradeLevel, dayWeek, timeClasse, startDate, endDate, durationMinutes)
+	values (8, 6, 8, 3, '7° ano EF', 'terça-feira', '18:30:00', '2026-02-03', '2026-11-30', 60);
+set @idRecurring = last_insert_id(); 
+call gerar_aulas_fixas(@idRecurring);
+
+insert into recurringClasses (idPackage, idTeacher, idStudent, idSubject, gradeLevel, dayWeek, timeClasse, startDate, endDate, durationMinutes)
+	values (8, 6, 8, 3, '7° ano EF', 'sexta-feira', '18:30:00', '2026-02-06', '2026-11-30', 60);
+set @idRecurring = last_insert_id(); 
+call gerar_aulas_fixas(@idRecurring);
+
+insert into recurringClasses (idPackage, idTeacher, idStudent, idSubject, gradeLevel, dayWeek, timeClasse, startDate, endDate, durationMinutes)
+	values (9, 15, 12, 4, '6° ano EF', 'segunda-feira', '08:00:00', '2026-02-02', '2026-11-30', 60);
+set @idRecurring = last_insert_id(); 
+call gerar_aulas_fixas(@idRecurring);
+
+insert into recurringClasses (idPackage, idTeacher, idStudent, idSubject, gradeLevel, dayWeek, timeClasse, startDate, endDate, durationMinutes)
+	values (9, 15, 12, 4, '6° ano EF', 'quarta-feira', '08:00:00', '2026-02-04', '2026-11-30', 60);
+set @idRecurring = last_insert_id(); 
+call gerar_aulas_fixas(@idRecurring);
+
+insert into recurringClasses (idPackage, idTeacher, idStudent, idSubject, gradeLevel, dayWeek, timeClasse, startDate, endDate, durationMinutes)
+	values (9, 15, 12, 4, '6° ano EF', 'sexta-feira', '08:00:00', '2026-02-06', '2026-11-30', 60);
+set @idRecurring = last_insert_id(); 
+call gerar_aulas_fixas(@idRecurring);
+
+insert into recurringClasses (idPackage, idTeacher, idStudent, idSubject, gradeLevel, dayWeek, timeClasse, startDate, endDate, durationMinutes)
+	values (10, 8, 9, 5, '5° ano EF', 'sábado', '09:30:00', '2026-02-07', '2026-11-30', 120);
+set @idRecurring = last_insert_id(); 
+call gerar_aulas_fixas(@idRecurring);
+
+insert into recurringClasses (idPackage, idTeacher, idStudent, idSubject, gradeLevel, dayWeek, timeClasse, startDate, endDate, durationMinutes)
+	values (11, 2, 14, 9, '8° ano EF', 'terça-feira', '15:00:00', '2026-02-10', '2026-11-30', 60);
+set @idRecurring = last_insert_id(); 
+call gerar_aulas_fixas(@idRecurring);
+
+insert into recurringClasses (idPackage, idTeacher, idStudent, idSubject, gradeLevel, dayWeek, timeClasse, startDate, endDate, durationMinutes)
+	values (11, 2, 14, 9, '8° ano EF', 'quinta-feira', '15:00:00', '2026-02-12', '2026-11-30', 60);
+set @idRecurring = last_insert_id(); 
+call gerar_aulas_fixas(@idRecurring);
+
+insert into recurringClasses (idPackage, idTeacher, idStudent, idSubject, gradeLevel, dayWeek, timeClasse, startDate, endDate, durationMinutes)
+	values (12, 5, 37, 10, '9° ano EF', 'segunda-feira', '19:30:00', '2026-03-02', '2026-11-30', 90);
+set @idRecurring = last_insert_id(); 
+call gerar_aulas_fixas(@idRecurring);
+
+insert into recurringClasses (idPackage, idTeacher, idStudent, idSubject, gradeLevel, dayWeek, timeClasse, startDate, endDate, durationMinutes)
+	values (12, 5, 37, 10, '9° ano EF', 'quarta-feira', '19:30:00', '2026-03-04', '2026-11-30', 90);
+set @idRecurring = last_insert_id(); 
+call gerar_aulas_fixas(@idRecurring);
+
+insert into recurringClasses (idPackage, idTeacher, idStudent, idSubject, gradeLevel, dayWeek, timeClasse, startDate, endDate, durationMinutes)
+	values (13, 14, 49, 9, '9° ano EF', 'sexta-feira', '14:30:00', '2026-02-06', '2026-11-30', 60);
+set @idRecurring = last_insert_id(); 
+call gerar_aulas_fixas(@idRecurring);
+
+insert into recurringClasses (idPackage, idTeacher, idStudent, idSubject, gradeLevel, dayWeek, timeClasse, startDate, endDate, durationMinutes)
+	values (14, 10, 40, 10, '5° ano EF', 'terça-feira', '13:00:00', '2026-02-03', '2026-11-30', 60);
+set @idRecurring = last_insert_id(); 
+call gerar_aulas_fixas(@idRecurring);
+
+insert into recurringClasses (idPackage, idTeacher, idStudent, idSubject, gradeLevel, dayWeek, timeClasse, startDate, endDate, durationMinutes)
+	values (14, 10, 40, 10, '5° ano EF', 'sábado', '13:00:00', '2026-02-07', '2026-11-30', 60);
+set @idRecurring = last_insert_id(); 
+call gerar_aulas_fixas(@idRecurring);
+
+insert into recurringClasses (idPackage, idTeacher, idStudent, idSubject, gradeLevel, dayWeek, timeClasse, startDate, endDate, durationMinutes)
+	values (15, 13, 39, 7, '2° ano EM', 'segunda-feira', '20:00:00', '2026-02-02', '2026-11-30', 60);
+set @idRecurring = last_insert_id(); 
+call gerar_aulas_fixas(@idRecurring);
+
+insert into recurringClasses (idPackage, idTeacher, idStudent, idSubject, gradeLevel, dayWeek, timeClasse, startDate, endDate, durationMinutes)
+	values (15, 13, 39, 7, '2° ano EM', 'terça-feira', '20:00:00', '2026-02-03', '2026-11-30', 60);
+set @idRecurring = last_insert_id(); 
+call gerar_aulas_fixas(@idRecurring);
+
+insert into recurringClasses (idPackage, idTeacher, idStudent, idSubject, gradeLevel, dayWeek, timeClasse, startDate, endDate, durationMinutes)
+	values (15, 13, 39, 7, '2° ano EM', 'quinta-feira', '20:00:00', '2026-02-05', '2026-11-30', 60);
+set @idRecurring = last_insert_id(); 
+call gerar_aulas_fixas(@idRecurring);
         
-        
-        
+-- confere quantas aulas fixas foram geradas
+select idPackage, count(distinct rc.idRecurringClasse) as diasNaSemana, count(c.idClasse) as totalAulasGeradas
+from recurringClasses rc
+join classes c on c.idRecurringClasse = rc.idRecurringClasse
+group by idPackage
+order by idPackage;
+
+-- insere aulas esporádicas
+insert into classes (idTeacher, idStudent, idSubject, gradeLevel, classDate, classTime, typeClasse, classStatus, durationMinutes, price) 
+	values
+		(1, 3, 2, '9° ano EF', '2026-04-10', '10:00:00', 'Esporádica', 'Realizada', 60, 90.00),
+		(7, 32, 2, '4° ano EF', '2026-04-11', '15:00:00', 'Esporádica', 'Agendada', 60, 90.00),
+		(12, 26, 2, '9° ano EF', '2026-04-12', '09:00:00', 'Esporádica', 'Realizada', 60, 90.00),
+		(9, 45, 11, '3° ano EM', '2026-04-13', '19:00:00', 'Esporádica', 'Agendada', 60, 90.00),
+		(11, 11, 1, '3° ano EM', '2026-04-14', '14:00:00', 'Esporádica', 'Cancelada', 60, 90.00),
+		(15, 41, 3, '6° ano EF', '2026-04-15', '08:30:00', 'Esporádica', 'Realizada', 60, 90.00),
+		(8, 31, 5, '7° ano EF', '2026-04-16', '10:30:00', 'Esporádica', 'Agendada', 60, 90.00),
+		(5, 50, 10, '9° ano EF', '2026-04-17', '19:30:00', 'Esporádica', 'Cancelada', 90, 90.00),
+		(10, 52, 10, '2° ano EM', '2026-04-18', '13:00:00', 'Esporádica', 'Agendada', 60, 90.00),
+		(13, 39, 8, '2° ano EM', '2026-04-19', '20:00:00', 'Esporádica', 'Agendada', 60, 90.00),
+		(3, 7, 6, '1° ano EM', '2026-04-20', '11:00:00', 'Esporádica', 'Realizada', 60, 90.00),
+		(9, 15, 11, '8° ano EF', '2026-04-21', '19:00:00', 'Esporádica', 'Agendada', 60, 90.00),
+		(2, 24, 9, '8° ano EF', '2026-05-05', '16:00:00', 'Esporádica', 'Realizada', 60, 90.00),
+		(6, 12, 3, null, '2026-05-06', '18:00:00', 'Esporádica', 'Agendada', 60, 90.00),
+		(14, 29, 9, '5° ano EF', '2026-05-07', '14:00:00', 'Esporádica', 'Realizada', 60, 90.00);
+
+
+
+
         
         
         
