@@ -96,6 +96,9 @@ create table recurringClasses(
         references teacherSubject(idTeacher, idSubject, gradeLevel)
 );
 
+alter table recurringClasses
+	modify endDate date not null;
+
 -- criando tabela de aulas 
 create table classes(
 	idClasse int auto_increment primary key,
