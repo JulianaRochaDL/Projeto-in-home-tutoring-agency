@@ -391,15 +391,53 @@ insert into classes (idTeacher, idStudent, idSubject, gradeLevel, classDate, cla
 		(9, 45, 11, '3° ano EM', '2026-04-13', '19:00:00', 'Esporádica', 'Agendada', 60, 90.00),
 		(11, 11, 1, '3° ano EM', '2026-04-14', '14:00:00', 'Esporádica', 'Cancelada', 60, 90.00),
 		(15, 41, 3, '6° ano EF', '2026-04-15', '08:30:00', 'Esporádica', 'Realizada', 60, 90.00),
-		(8, 31, 5, '7° ano EF', '2026-04-16', '10:30:00', 'Esporádica', 'Agendada', 60, 90.00),
+		(8, 31, 5, '7° ano EF', '2026-04-16', '10:30:00', 'Esporádica', 'Agendada', 60, 90.00), 
 		(5, 50, 10, '9° ano EF', '2026-04-17', '19:30:00', 'Esporádica', 'Cancelada', 90, 90.00),
-		(10, 52, 10, '2° ano EM', '2026-04-18', '13:00:00', 'Esporádica', 'Agendada', 60, 90.00),
-		(13, 39, 8, '2° ano EM', '2026-04-19', '20:00:00', 'Esporádica', 'Agendada', 60, 90.00),
+		(10, 52, 10, '2° ano EM', '2026-04-18', '13:00:00', 'Esporádica', 'Agendada', 60, 90.00), 
+		(13, 39, 8, '2° ano EM', '2026-04-19', '20:00:00', 'Esporádica', 'Agendada', 60, 90.00), 
 		(3, 7, 6, '1° ano EM', '2026-04-20', '11:00:00', 'Esporádica', 'Realizada', 60, 90.00),
-		(9, 15, 11, '8° ano EF', '2026-04-21', '19:00:00', 'Esporádica', 'Agendada', 60, 90.00),
-		(2, 24, 9, '8° ano EF', '2026-05-05', '16:00:00', 'Esporádica', 'Realizada', 60, 90.00),
-		(6, 12, 3, null, '2026-05-06', '18:00:00', 'Esporádica', 'Agendada', 60, 90.00),
+		(9, 15, 11, '8° ano EF', '2026-04-21', '19:00:00', 'Esporádica', 'Agendada', 60, 90.00), 
+		(2, 24, 9, '8° ano EF', '2026-05-05', '16:00:00', 'Esporádica', 'Realizada', 60, 90.00), 
+		(6, 12, 3, null, '2026-05-06', '18:00:00', 'Esporádica', 'Agendada', 60, 90.00), 
 		(14, 29, 9, '5° ano EF', '2026-05-07', '14:00:00', 'Esporádica', 'Realizada', 60, 90.00);
+
+update classes
+set classDate = '2026-09-11'
+where idClasse = 2;
+
+update classes
+set classDate = '2026-09-14'
+where idClasse = 4;
+
+update classes
+set classDate = '2026-07-15'
+where idClasse = 6;
+
+update classes
+set classDate = '2026-10-01'
+where idClasse = 7;
+
+update classes
+set classDate = '2026-09-17'
+where idClasse = 9;
+
+update classes
+set classDate = '2026-10-05'
+where idClasse = 10;
+
+update classes
+set classDate = '2026-08-20'
+where idClasse = 11;
+
+update classes
+set classDate = '2026-10-13'
+where idClasse = 12;
+
+update classes
+set classDate = '2026-09-24'
+where idClasse = 14;
+
+
 
 
 
