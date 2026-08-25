@@ -50,8 +50,8 @@ where s.idStudent = 1
     and ns.cityZone = nt.cityZone;
     
 -- Quantas aulas cada aluno realizou em maio, 
--- qual foi o valor total recebido pela agência 
--- e qual percentual da receita de maio veio de cada aluno?
+-- quanto cada um pagou à agência 
+-- e qual foi sua participação percentual na receita total do mês?
 select
 	s.idStudent,
     concat(s.Fname, ' ', s.Lname) as nameStudent,
