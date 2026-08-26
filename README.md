@@ -46,16 +46,17 @@ O projeto tem como principais objetivos:
 
 O projeto está dividido nas seguintes etapas:
 
-```text
-schema
-inserts
-procedures
-events
-queries
+1. schema
+2. inserts
+3. procedures
+4. events
+5. queries
 
 ---
 
 ## Queries e perguntas de negócio utilizadas
+
+### As consultas SQL foram desenvolvidas a partir de perguntas de negócio relacionadas ao funcionamento da agência.
 
 - Quantos filhos cada responsável tem matriculados?
 - Qual é a disciplina mais procurada?
