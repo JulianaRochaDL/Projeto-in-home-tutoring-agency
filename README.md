@@ -53,6 +53,8 @@ procedures
 events
 queries
 
+---
+
 ## Queries e perguntas de negócio utilizadas
 
 - Quantos filhos cada responsável tem matriculados?
