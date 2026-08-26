@@ -11,3 +11,4 @@ As perguntas de negócio utilizadas para desenvolver as queries foram:
 - Quais professores ensinam matemática e moram na mesma cidade e mesma zona que o aluno 1, considerando que sejam professores que lecionam para a mesma série que o aluno em questão?
 - Quantas aulas cada aluno realizou em maio, quanto cada um pagou à agência e qual foi sua participação percentual na receita total do mês?
 - Quais alunos tem aula de física?
+- Sabendo que o repasse do professor é 80% do valor recebido pela agência, quanto foi o faturamento de cada professor no mês de abril?
