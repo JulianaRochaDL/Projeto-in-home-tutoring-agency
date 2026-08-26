@@ -85,6 +85,7 @@ insert into subjects(Dname)
         ('Espanhol'),
         ('Redação');
  
+
  -- insere os dados dos alunos
 insert into students(idGuardian, idNeighborhood, street, num, Fname, Minit, Lname, CPF, contact, gradeLevel)
 	values
