@@ -56,7 +56,7 @@ O projeto está dividido nas seguintes etapas:
 
 ## Queries e perguntas de negócio utilizadas
 
-### As consultas SQL foram desenvolvidas a partir de perguntas de negócio relacionadas ao funcionamento da agência.
+**As consultas SQL foram desenvolvidas a partir de perguntas de negócio relacionadas ao funcionamento da agência.**
 
 - Quantos filhos cada responsável tem matriculados?
 - Qual é a disciplina mais procurada?
