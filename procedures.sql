@@ -13,7 +13,7 @@ begin
     declare v_timeClasse time;
     declare v_startDate date;
     declare v_endDate date;
-    declare v_durationMinutes date;
+    declare v_durationMinutes int;
     declare v_currentDate date;
     declare v_dayName varchar(20);
 
