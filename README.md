@@ -1,10 +1,59 @@
+
 # In-Home Tutoring Agency
 
-O In-Home Tutoring Agency é um projeto de banco de dados desenvolvido para o gerenciamento de uma agência de aulas particulares domiciliares, utilizando MySQL e MySQL Workbench. O projeto tem como objetivo aplicar conceitos de modelagem de banco de dados, relacionamentos entre tabelas e consultas SQL, contemplando informações relacionadas a localização, professores, alunos, responsáveis, disciplinas e aulas. Foram inseridos dados fictícios e desenvolvidas consultas para análise das informações armazenadas.
+## Sobre o projeto
 
-O projeto deve ser executado na seguinte sequência: schema -> inserts -> procedures -> events -> queries.
+O **In-Home Tutoring Agency** é um projeto de banco de dados desenvolvido para o gerenciamento de uma agência de aulas particulares domiciliares. O projeto foi desenvolvido utilizando **MySQL 8.0** e **MySQL Workbench**, com o objetivo de aplicar conceitos de modelagem de banco de dados, relacionamentos entre tabelas, integridade dos dados e consultas SQL. O sistema contempla informações relacionadas a **alunos, responsáveis, professores, disciplinas, aulas e localização**, permitindo o armazenamento e a análise dos dados envolvidos na operação da agência.
 
-As perguntas de negócio utilizadas para desenvolver as queries foram:
+Foram utilizados dados fictícios para representar situações próximas às encontradas em uma agência de aulas particulares domiciliares.
+
+---
+
+## Contexto do projeto
+
+Uma agência de aulas particulares domiciliares atua como intermediadora entre **alunos que precisam de acompanhamento educacional** e **professores particulares** disponíveis para realizar as aulas. Nesse modelo, a agência é responsável por organizar informações dos alunos, responsáveis e professores, além de realizar o gerenciamento das disciplinas, séries, horários e aulas.
+
+Um aspecto importante nesse tipo de serviço é a **proximidade geográfica entre professor e aluno**. Como as aulas são realizadas presencialmente na residência do aluno, a localização pode influenciar diretamente na escolha de um professor adequado. Por esse motivo, o banco de dados armazena informações relacionadas à localização, permitindo realizar consultas que considerem critérios como **cidade e zona**, além da compatibilidade entre professor, disciplina e série. Dessa forma, o banco pode auxiliar a agência na identificação de professores que atendam às necessidades acadêmicas dos alunos e que estejam geograficamente próximos, contribuindo para uma organização mais eficiente das aulas.
+
+Além do gerenciamento das aulas, o projeto também contempla informações financeiras, permitindo analisar valores recebidos pela agência e os respectivos repasses aos professores.
+
+---
+
+## Objetivos
+
+O projeto tem como principais objetivos:
+
+- Modelar um banco de dados para uma agência de aulas particulares domiciliares;
+- Armazenar informações de alunos, responsáveis, professores e disciplinas;
+- Representar os relacionamentos entre professores, disciplinas e séries;
+- Gerenciar aulas fixas e esporádicas;
+- Armazenar informações de localização;
+- Permitir consultas relacionadas à proximidade geográfica entre professores e alunos;
+- Analisar a quantidade de aulas realizadas;
+- Analisar informações financeiras da agência e dos professores;
+- Aplicar diferentes recursos da linguagem SQL.
+
+---
+
+## Tecnologias utilizadas
+
+- **MySQL 8.0** — sistema de gerenciamento de banco de dados utilizado para criação, armazenamento e manipulação dos dados.
+- **MySQL Workbench** — ferramenta utilizada para desenvolvimento, modelagem, execução e gerenciamento do banco de dados.
+
+---
+
+## Estrutura do projeto
+
+O projeto está dividido nas seguintes etapas:
+
+```text
+schema
+inserts
+procedures
+events
+queries
+
+## Queries e perguntas de negócio utilizadas
 
 - Quantos filhos cada responsável tem matriculados?
 - Qual é a disciplina mais procurada?
