@@ -84,6 +84,22 @@ where idStudent in (
     where idSubject = (select idSubject from subjects where Dname = 'Física')
 );
 
+-- Sabendo que o repasse do professor é 80% do valor recebido pela agência,
+-- quanto foi o faturamento de cada professor no mês de abril?
+select
+	t.idTeacher,
+    concat(t.Fname, ' ', t.Lname) as nameTeacher,
+    count(*) as totalClasses,
+    sum(c.price) as grossRevenue,
+    round(sum(c.price * 0.80), 2) as teacherPayout,
+    round(sum(c.price * 0.20), 2) as agencyRevenue
+from classes c 
+join teachers t 
+	on t.idTeacher = c.idTeacher
+where c.classStatus = 'Realizada'
+	and c.classDate between '2026-04-01' and '2026-04-30'
+group by t.idTeacher
+order by teacherPayout desc;
 
     
 
