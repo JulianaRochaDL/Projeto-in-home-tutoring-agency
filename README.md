@@ -64,3 +64,4 @@ As consultas SQL foram desenvolvidas a partir de perguntas de negócio relaciona
 - Quantas aulas cada aluno realizou em maio, quanto cada um pagou à agência e qual foi sua participação percentual na receita total do mês?
 - Quais alunos tem aula de física?
 - Sabendo que o repasse do professor é 80% do valor recebido pela agência, quanto foi o faturamento de cada professor no mês de abril?
+- Qual aluno realizou mais aulas em cada disciplina?
