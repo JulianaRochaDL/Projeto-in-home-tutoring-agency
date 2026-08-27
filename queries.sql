@@ -1,5 +1,7 @@
 -- Realizando queries
 
+use tutoring_agency;
+
 -- Quantos filhos cada responsável tem matriculados?
 select 
 	g.idGuardian, 
@@ -101,8 +103,32 @@ where c.classStatus = 'Realizada'
 group by t.idTeacher
 order by teacherPayout desc;
 
-    
-
+-- Qual aluno realizou mais aulas em cada disciplina?
+select
+	nameSubject,
+    nameStudent,
+    totalClasses
+from (
+	select
+		sub.Dname as nameSubject,
+        concat(s.Fname, ' ', s.Lname) as nameStudent,
+        count(*) as totalClasses,
+        row_number () over (
+			partition by sub.Dname
+            order by count(*) desc
+		) as positions
+	from classes c
+    join subjects sub
+		on sub.idSubject = c.idSubject
+	join students s
+		on s.idStudent = c.idStudent
+	where c.classStatus = 'Realizada'
+    group by sub.Dname, s.idStudent
+) as ranking
+where positions =1
+order by nameSubject;
+			
+		
     
 
 
